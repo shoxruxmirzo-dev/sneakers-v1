@@ -2,10 +2,11 @@ import React from 'react';
 import Title from '../components/Title';
 import Card from '../components/Card';
 import Banner from '../components/Banner';
-import { dummyProducts } from '../assets/assets';
 import Searchblock from '../components/Searchblock';
+import { useAppContext } from '../context/AppContext';
 
 const Home = () => {
+  const { products } = useAppContext();
   return (
     <>
       <Banner />
@@ -17,7 +18,7 @@ const Home = () => {
               <Searchblock />
             </div>
             <div className="mt-7 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
-              {dummyProducts.map((product, index) => (
+              {products.map((product, index) => (
                 <Card key={index} product={product} />
               ))}
             </div>

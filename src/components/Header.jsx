@@ -4,7 +4,7 @@ import { useAppContext } from '../context/AppContext';
 import { Link } from 'react-router';
 
 const Header = () => {
-  const { navigate, isMenuOpen, setIsMenuOpen, setIsCartOpen } = useAppContext();
+  const { navigate, user, setUser, isMenuOpen, setIsMenuOpen, setIsCartOpen } = useAppContext();
 
   return (
     <header className="py-4 border-b">
@@ -29,17 +29,26 @@ const Header = () => {
               <ShoppingCart size={18} />
               <span>Корзина</span>
             </div>
-            <Link
-              to={'/favorites'}
+            <div
+              onClick={() => navigate('/favorites')}
               className="flex items-center gap-1 text-sm text-muted-foreground cursor-pointer transition hover:text-foreground"
             >
               <Heart size={18} />
               <span>Закладки</span>
-            </Link>
-            <div className="flex items-center gap-1 text-sm text-muted-foreground cursor-pointer transition hover:text-foreground">
-              <CircleUserRound size={18} />
-              <span>Профиль</span>
             </div>
+            {user ? (
+              <div className="flex items-center gap-1 text-sm text-muted-foreground cursor-pointer transition hover:text-foreground">
+                <CircleUserRound size={18} />
+                <span>Профиль</span>
+              </div>
+            ) : (
+              <button
+                onClick={() => setUser(true)}
+                className="border px-4 py-2 rounded-md text-sm text-muted-foreground cursor-pointer transition hover:text-foreground hover:bg-border"
+              >
+                Войти
+              </button>
+            )}
           </div>
 
           {/* Mobile menu */}

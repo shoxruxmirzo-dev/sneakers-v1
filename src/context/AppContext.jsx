@@ -1,12 +1,20 @@
 import { createContext, useContext, useState, useEffect } from 'react';
 import { useNavigate } from 'react-router';
+import { dummyProducts } from '../assets/assets';
 
 export const AppContext = createContext();
 
 export const AppContextProvider = ({ children }) => {
   const navigate = useNavigate();
+
+  const [user, setUser] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [products, setProducts] = useState([]);
   const [isCartOpen, setIsCartOpen] = useState(false);
+
+  useEffect(() => {
+    setProducts(dummyProducts);
+  }, []);
 
   useEffect(() => {
     if (isCartOpen) {
@@ -19,7 +27,16 @@ export const AppContextProvider = ({ children }) => {
     }
   }, [isCartOpen]);
 
-  const value = { navigate, isMenuOpen, setIsMenuOpen, isCartOpen, setIsCartOpen };
+  const value = {
+    navigate,
+    user,
+    setUser,
+    isMenuOpen,
+    setIsMenuOpen,
+    products,
+    isCartOpen,
+    setIsCartOpen,
+  };
 
   return <AppContext.Provider value={value}>{children}</AppContext.Provider>;
 };
