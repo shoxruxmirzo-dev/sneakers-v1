@@ -85,7 +85,9 @@
 
 @utility container {
   margin-inline: auto;
-  padding-inline: 2rem;
+  padding-inline: 1rem;
+  max-width: 1050px;
+  width: 100%;
 }
 
 @layer components {
@@ -114,8 +116,4 @@
   #root {
     @apply min-h-screen
   }
-}
-
-.no-scroll {
-  overflow: hidden;
 }

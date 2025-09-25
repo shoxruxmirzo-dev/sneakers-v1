@@ -5,12 +5,14 @@ import FavoritesPage from './pages/FavoritesPage';
 import OrdersPage from './pages/OrdersPage';
 import CartSheet from './components/CartSheet';
 import { useAppContext } from './context/AppContext';
+import { Toaster } from 'react-hot-toast';
 
 function App() {
   const { isCartOpen } = useAppContext();
 
   return (
     <>
+      <Toaster />
       <Header />
       {isCartOpen && <CartSheet />}
       <main>

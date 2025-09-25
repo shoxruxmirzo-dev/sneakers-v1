@@ -14,9 +14,7 @@ const CartSheet = () => {
     >
       <div
         onClick={(e) => e.stopPropagation()}
-        className={`absolute w-sm h-screen right-0 bg-background shadow-md p-5 pb-8 flex flex-col gap-4 transition ${
-          isCartOpen ? '' : ''
-        }`}
+        className={`absolute w-full sm:w-sm h-screen right-0 bg-background shadow-md p-5 pb-8 flex flex-col gap-4`}
       >
         <div className="flex items-center justify-between">
           <h1 className="text-3xl font-bold">Корзина</h1>

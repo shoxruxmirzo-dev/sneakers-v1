@@ -12,10 +12,10 @@ export const AppContextProvider = ({ children }) => {
     if (isCartOpen) {
       const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
       document.body.style.paddingRight = `${scrollbarWidth}px`;
-      document.body.classList.add('no-scroll');
+      document.body.style.overflow = 'hidden';
     } else {
+      document.body.style.overflow = '';
       document.body.style.paddingRight = '';
-      document.body.classList.remove('no-scroll');
     }
   }, [isCartOpen]);
 

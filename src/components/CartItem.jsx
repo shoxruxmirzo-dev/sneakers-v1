@@ -4,9 +4,9 @@ import { dummyProducts } from '../assets/assets';
 
 const CartItem = () => {
   return (
-    <div className="mt-4 border p-3 rounded-xl flex items-center gap-2">
+    <div className="mt-4 border p-3 rounded-xl flex items-center gap-4 sm:gap-2">
       <img src={dummyProducts[0]['image']} alt="Image" width={70} />
-      <div>
+      <div className="flex-1">
         <h3 className="text-sm">Мужские Кроссовки Nike Blazer Mid Suede</h3>
         <b className="text-sm font-bold">12 999 руб</b>
       </div>

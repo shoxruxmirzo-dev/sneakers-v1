@@ -11,11 +11,11 @@ const Header = () => {
       <div className="container">
         <nav className="flex justify-between items-center">
           {/* Left */}
-          <Link to={'/'} className="flex items-center gap-2 cursor-pointer">
-            <img src="./logo.png" alt="Logo" className="w-10 h-10" />
+          <Link to={'/'} className="flex items-center gap-1 md:gap-2 cursor-pointer">
+            <img src="./logo.png" alt="Logo" className="w-9 h-9 md:w-10 md:h-10" />
             <div>
-              <h3 className="text-xl font-bold uppercase">React Sneakers</h3>
-              <p className="text-xs">Магазин лучших кроссовок</p>
+              <h3 className="text-sm md:text-xl font-bold uppercase">React Sneakers</h3>
+              <p className="hidden md:block text-xs">Магазин лучших кроссовок</p>
             </div>
           </Link>
 
@@ -63,19 +63,23 @@ const Header = () => {
                 className="absolute w-1/2 h-screen left-0 bg-background shadow-md p-5 pt-8 pb-8 flex flex-col items-center gap-4"
               >
                 <div
-                  onClick={() => setIsCartOpen(true)}
+                  onClick={() => {
+                    setIsCartOpen(true), setIsMenuOpen(false);
+                  }}
                   className="flex items-center gap-1 text-sm text-muted-foreground cursor-pointer transition hover:text-foreground"
                 >
                   <ShoppingCart size={18} />
                   <span>Корзина</span>
                 </div>
-                <Link
-                  to={'/favorites'}
+                <div
+                  onClick={() => {
+                    navigate('/favorites'), setIsMenuOpen(false);
+                  }}
                   className="flex items-center gap-1 text-sm text-muted-foreground cursor-pointer transition hover:text-foreground"
                 >
                   <Heart size={18} />
                   <span>Закладки</span>
-                </Link>
+                </div>
                 <div className="flex items-center gap-1 text-sm text-muted-foreground cursor-pointer transition hover:text-foreground">
                   <CircleUserRound size={18} />
                   <span>Профиль</span>

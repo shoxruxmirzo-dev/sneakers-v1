@@ -9,14 +9,14 @@ const Home = () => {
   return (
     <>
       <Banner />
-      <section className="mt-10">
+      <section className="mt-6 md:mt-10">
         <div className="container">
           <div className="flex flex-col">
-            <div className="flex items-center justify-between">
+            <div className="flex flex-col sm:flex-row items-center  justify-center sm:justify-between gap-2">
               <Title title="Все кроссовки" />
               <Searchblock />
             </div>
-            <div className="mt-7 flex flex-wrap  gap-4 md:gap-6">
+            <div className="mt-7 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
               {dummyProducts.map((product, index) => (
                 <Card key={index} product={product} />
               ))}
