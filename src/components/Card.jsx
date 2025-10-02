@@ -7,7 +7,7 @@ const Card = ({ product }) => {
 
   return (
     <div className="flex justify-center">
-      <div className="relative w-[210px] border p-5 rounded-xl hover:shadow-md transition hover:-translate-y-1.5">
+      <div className="relative w-[210px] border p-5 rounded-xl hover:shadow-md transition">
         <img src={product.image[0]} alt={product.name} width={168} className="block" />
         <h3 className="mt-2 text-sm">{product.name}</h3>
         <button

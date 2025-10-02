@@ -3,18 +3,16 @@ import Header from './components/Header';
 import Home from './pages/HomePage';
 import FavoritesPage from './pages/FavoritesPage';
 import OrdersPage from './pages/OrdersPage';
-import CartSheet from './components/CartSheet';
-import { useAppContext } from './context/AppContext';
+import CartDrawer from './components/CartDrawer';
+
 import { Toaster } from 'react-hot-toast';
 
 function App() {
-  const { isCartOpen } = useAppContext();
-
   return (
     <>
       <Toaster />
       <Header />
-      {isCartOpen && <CartSheet />}
+      <CartDrawer />
       <main>
         <Routes>
           <Route path="/" element={<Home />} />

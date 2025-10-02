@@ -2,7 +2,6 @@ import React from 'react';
 import Title from '../components/Title';
 import Card from '../components/Card';
 import Banner from '../components/Banner';
-import Searchblock from '../components/Searchblock';
 import { useAppContext } from '../context/AppContext';
 
 const Home = () => {
@@ -13,9 +12,8 @@ const Home = () => {
       <section className="mt-6 md:mt-10">
         <div className="container">
           <div className="flex flex-col">
-            <div className="flex flex-col sm:flex-row items-center  justify-center sm:justify-between gap-2">
+            <div className="">
               <Title title="Все кроссовки" />
-              <Searchblock />
             </div>
             <div className="mt-7 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
               {products.map((product, index) => (

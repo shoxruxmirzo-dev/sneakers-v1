@@ -3,18 +3,22 @@ import React from 'react';
 import CartItem from './CartItem';
 import { useAppContext } from '../context/AppContext';
 
-const CartSheet = () => {
+const CartDrawer = () => {
   const { isCartOpen, setIsCartOpen } = useAppContext();
   return (
     <div
       onClick={() => {
         setIsCartOpen(false);
       }}
-      className="fixed left-0 top-0 right-0 bottom-0 z-30 w-full h-full bg-black/50"
+      className={`fixed inset-0 z-30 w-full h-full bg-black/50 ${
+        isCartOpen ? 'visible' : 'invisible'
+      }`}
     >
       <div
         onClick={(e) => e.stopPropagation()}
-        className={`absolute w-full sm:w-sm h-screen right-0 bg-background shadow-md p-5 pb-8 flex flex-col gap-4`}
+        className={`absolute right-0 w-full sm:w-sm h-screen bg-background shadow-md p-5 pb-8 flex flex-col gap-4 transform transition-transform duration-300 ${
+          isCartOpen ? 'translate-x-0' : 'translate-x-full'
+        }`}
       >
         <div className="flex items-center justify-between">
           <h1 className="text-3xl font-bold">Корзина</h1>
@@ -47,4 +51,4 @@ const CartSheet = () => {
   );
 };
 
-export default CartSheet;
+export default CartDrawer;

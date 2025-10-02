@@ -7,7 +7,7 @@ export const AppContext = createContext();
 export const AppContextProvider = ({ children }) => {
   const navigate = useNavigate();
 
-  const [user, setUser] = useState(false);
+  const [userData, setUserData] = useState(null);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [products, setProducts] = useState([]);
   const [isCartOpen, setIsCartOpen] = useState(false);
@@ -29,8 +29,8 @@ export const AppContextProvider = ({ children }) => {
 
   const value = {
     navigate,
-    user,
-    setUser,
+    userData,
+    setUserData,
     isMenuOpen,
     setIsMenuOpen,
     products,
